@@ -4,6 +4,10 @@
   "private": true,
   "scripts": {
     "start": "react-native start",
+    "reset": "react-native start --reset-cache",
+    "emu": "emulator @Pixel_XL_API_28 -dns-server 8.8.8.8",
+    "android": "react-native run-android",
+    "ios": "react-native run-ios",
     "test": "jest",
     "lint": "eslint ."
   },
