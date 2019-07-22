@@ -7,7 +7,7 @@ import { View } from "react-native";
 export default class MainIndex extends Component {
   render() {
     return (
-      <View>
+      <View style={{ flex: 1 }}>
         <Container />
       </View>
     );

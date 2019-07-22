@@ -5,7 +5,7 @@ import { View, Text } from "react-native";
 
 export default () => {
   return (
-    <View>
+    <View style={{ flex: 1 }}>
       <Presenter />
     </View>
   );
