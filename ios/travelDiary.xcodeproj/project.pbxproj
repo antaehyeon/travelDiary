@@ -5,7 +5,6 @@
 	};
 	objectVersion = 46;
 	objects = {
-
 /* Begin PBXBuildFile section */
 		00E356F31AD99517003FC87E /* travelDiaryTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 00E356F21AD99517003FC87E /* travelDiaryTests.m */; };
 		0ED270D8D3AFFC207BF6F8E5 /* libPods-travelDiary.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 573E12D7E38F5BD19FBACDD3 /* libPods-travelDiary.a */; };
@@ -20,6 +19,12 @@
 		4F3F39AF90A71F5B3CEA5C0B /* libPods-travelDiary-tvOSTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 09774F2E73FA10A72CB8DB3D /* libPods-travelDiary-tvOSTests.a */; };
 		AE850142DC585D63ECD9DA43 /* libPods-travelDiary-tvOS.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 414C391229CB372FD8B81F32 /* libPods-travelDiary-tvOS.a */; };
 		AEA9539B4FDB8BF562365B62 /* libPods-travelDiaryTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5B15E66BC0FBB114DD8A601A /* libPods-travelDiaryTests.a */; };
+		3228B44C488A4EA3839BD966 /* NanumBarunGothicOTF.otf in Resources */ = {isa = PBXBuildFile; fileRef = A23361CDB45E4BBA8F8CED94 /* NanumBarunGothicOTF.otf */; };
+		DA185198316E4E26A6016B2D /* NanumBarunGothicOTFBold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 5BFF6673CE6A49D38F8503DC /* NanumBarunGothicOTFBold.otf */; };
+		EE4ECC29452C487CAF1DBAD9 /* NanumSquareB.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A08D388C83F840C481FC5908 /* NanumSquareB.ttf */; };
+		4E563CC8C2904034AD8C2663 /* NanumSquareEB.ttf in Resources */ = {isa = PBXBuildFile; fileRef = B07CBC8AE92B4116A621EA71 /* NanumSquareEB.ttf */; };
+		3C5AD23654354B5C83EF4769 /* NanumSquareL.ttf in Resources */ = {isa = PBXBuildFile; fileRef = CA536370B1A94993984BC7E6 /* NanumSquareL.ttf */; };
+		B6089BFCF0B44859B20E8A02 /* NanumSquareR.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 9848E99B40C443C7A05A6664 /* NanumSquareR.ttf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -67,6 +72,12 @@
 		A39C208C2CF446406683505F /* Pods-travelDiary-tvOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-travelDiary-tvOS.debug.xcconfig"; path = "Target Support Files/Pods-travelDiary-tvOS/Pods-travelDiary-tvOS.debug.xcconfig"; sourceTree = "<group>"; };
 		ED297162215061F000B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
 		ED2971642150620600B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = Platforms/AppleTVOS.platform/Developer/SDKs/AppleTVOS12.0.sdk/System/Library/Frameworks/JavaScriptCore.framework; sourceTree = DEVELOPER_DIR; };
+		A23361CDB45E4BBA8F8CED94 /* NanumBarunGothicOTF.otf */ = {isa = PBXFileReference; name = "NanumBarunGothicOTF.otf"; path = "../assets/fonts/NanumBarunGothicOTF.otf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		5BFF6673CE6A49D38F8503DC /* NanumBarunGothicOTFBold.otf */ = {isa = PBXFileReference; name = "NanumBarunGothicOTFBold.otf"; path = "../assets/fonts/NanumBarunGothicOTFBold.otf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		A08D388C83F840C481FC5908 /* NanumSquareB.ttf */ = {isa = PBXFileReference; name = "NanumSquareB.ttf"; path = "../assets/fonts/NanumSquareB.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		B07CBC8AE92B4116A621EA71 /* NanumSquareEB.ttf */ = {isa = PBXFileReference; name = "NanumSquareEB.ttf"; path = "../assets/fonts/NanumSquareEB.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		CA536370B1A94993984BC7E6 /* NanumSquareL.ttf */ = {isa = PBXFileReference; name = "NanumSquareL.ttf"; path = "../assets/fonts/NanumSquareL.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		9848E99B40C443C7A05A6664 /* NanumSquareR.ttf */ = {isa = PBXFileReference; name = "NanumSquareR.ttf"; path = "../assets/fonts/NanumSquareR.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -165,6 +176,7 @@
 				83CBBA001A601CBA00E9B192 /* Products */,
 				2D16E6871FA4F8E400B85C8A /* Frameworks */,
 				B7D77FD0752D4C75344944FF /* Pods */,
+				3365D2864763436883C80FFC /* Resources */,
 			);
 			indentWidth = 2;
 			sourceTree = "<group>";
@@ -197,6 +209,20 @@
 			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
+		};
+		3365D2864763436883C80FFC /* Resources */ = {
+			isa = "PBXGroup";
+			children = (
+				A23361CDB45E4BBA8F8CED94 /* NanumBarunGothicOTF.otf */,
+				5BFF6673CE6A49D38F8503DC /* NanumBarunGothicOTFBold.otf */,
+				A08D388C83F840C481FC5908 /* NanumSquareB.ttf */,
+				B07CBC8AE92B4116A621EA71 /* NanumSquareEB.ttf */,
+				CA536370B1A94993984BC7E6 /* NanumSquareL.ttf */,
+				9848E99B40C443C7A05A6664 /* NanumSquareR.ttf */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+			path = "";
 		};
 /* End PBXGroup section */
 
@@ -285,7 +311,7 @@
 		83CBB9F71A601CBA00E9B192 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0940;
+				LastUpgradeCheck = 940;
 				ORGANIZATIONNAME = Facebook;
 				TargetAttributes = {
 					00E356ED1AD99517003FC87E = {
@@ -338,6 +364,12 @@
 			files = (
 				13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */,
 				13B07FBD1A68108700A75B9A /* LaunchScreen.xib in Resources */,
+				3228B44C488A4EA3839BD966 /* NanumBarunGothicOTF.otf in Resources */,
+				DA185198316E4E26A6016B2D /* NanumBarunGothicOTFBold.otf in Resources */,
+				EE4ECC29452C487CAF1DBAD9 /* NanumSquareB.ttf in Resources */,
+				4E563CC8C2904034AD8C2663 /* NanumSquareEB.ttf in Resources */,
+				3C5AD23654354B5C83EF4769 /* NanumSquareL.ttf in Resources */,
+				B6089BFCF0B44859B20E8A02 /* NanumSquareR.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

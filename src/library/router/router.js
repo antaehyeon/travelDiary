@@ -10,6 +10,9 @@ import Main from "src/screens/main";
 // Deatil
 import Detail from "src/screens/detail";
 
+// TEST
+import FontTest from "src/screens/testScreens/FontTest.js";
+
 export default props => {
   return (
     <Router>
@@ -19,6 +22,7 @@ export default props => {
             <Scene key="launch" component={Launch} />
             <Scene key="main" component={Main} />
             <Scene key="detail" component={Detail} />
+            <Scene key="fontTest" component={FontTest} initial />
           </Stack>
         </Modal>
       </Overlay>
