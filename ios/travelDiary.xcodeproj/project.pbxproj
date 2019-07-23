@@ -13,13 +13,13 @@
 		13B07FBD1A68108700A75B9A /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB11A68108700A75B9A /* LaunchScreen.xib */; };
 		13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB51A68108700A75B9A /* Images.xcassets */; };
 		13B07FC11A68108700A75B9A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB71A68108700A75B9A /* main.m */; };
+		1AD3D47B841E06AEC79C975F /* libPods-travelDiaryTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5B15E66BC0FBB114DD8A601A /* libPods-travelDiaryTests.a */; };
 		2D02E4BC1E0B4A80006451C7 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB01A68108700A75B9A /* AppDelegate.m */; };
 		2D02E4BD1E0B4A84006451C7 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB51A68108700A75B9A /* Images.xcassets */; };
 		2D02E4BF1E0B4AB3006451C7 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB71A68108700A75B9A /* main.m */; };
 		2DCD954D1E0B4F2C00145EB5 /* travelDiaryTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 00E356F21AD99517003FC87E /* travelDiaryTests.m */; };
-		4F3F39AF90A71F5B3CEA5C0B /* libPods-travelDiary-tvOSTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 09774F2E73FA10A72CB8DB3D /* libPods-travelDiary-tvOSTests.a */; };
-		AE850142DC585D63ECD9DA43 /* libPods-travelDiary-tvOS.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 414C391229CB372FD8B81F32 /* libPods-travelDiary-tvOS.a */; };
-		AEA9539B4FDB8BF562365B62 /* libPods-travelDiaryTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5B15E66BC0FBB114DD8A601A /* libPods-travelDiaryTests.a */; };
+		334E2E25D0C4B2897A8162FB /* libPods-travelDiary-tvOSTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 09774F2E73FA10A72CB8DB3D /* libPods-travelDiary-tvOSTests.a */; };
+		BD12FA5644F7902899FA9E54 /* libPods-travelDiary-tvOS.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 414C391229CB372FD8B81F32 /* libPods-travelDiary-tvOS.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -44,7 +44,7 @@
 		00E356EE1AD99517003FC87E /* travelDiaryTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = travelDiaryTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		00E356F11AD99517003FC87E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		00E356F21AD99517003FC87E /* travelDiaryTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = travelDiaryTests.m; sourceTree = "<group>"; };
-		093B07C3930DF1E19407C9E1 /* Pods-travelDiary-tvOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-travelDiary-tvOS.release.xcconfig"; path = "Target Support Files/Pods-travelDiary-tvOS/Pods-travelDiary-tvOS.release.xcconfig"; sourceTree = "<group>"; };
+		016E22A57728E8BBA585DD15 /* Pods-travelDiaryTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-travelDiaryTests.debug.xcconfig"; path = "Target Support Files/Pods-travelDiaryTests/Pods-travelDiaryTests.debug.xcconfig"; sourceTree = "<group>"; };
 		09774F2E73FA10A72CB8DB3D /* libPods-travelDiary-tvOSTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-travelDiary-tvOSTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		13B07F961A680F5B00A75B9A /* travelDiary.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = travelDiary.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		13B07FAF1A68108700A75B9A /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AppDelegate.h; path = travelDiary/AppDelegate.h; sourceTree = "<group>"; };
@@ -53,18 +53,18 @@
 		13B07FB51A68108700A75B9A /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = travelDiary/Images.xcassets; sourceTree = "<group>"; };
 		13B07FB61A68108700A75B9A /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = travelDiary/Info.plist; sourceTree = "<group>"; };
 		13B07FB71A68108700A75B9A /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = main.m; path = travelDiary/main.m; sourceTree = "<group>"; };
+		1898687D7BA4648E5192F8C1 /* Pods-travelDiaryTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-travelDiaryTests.release.xcconfig"; path = "Target Support Files/Pods-travelDiaryTests/Pods-travelDiaryTests.release.xcconfig"; sourceTree = "<group>"; };
+		2617E15F8E4071C4AB21D195 /* Pods-travelDiary-tvOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-travelDiary-tvOS.debug.xcconfig"; path = "Target Support Files/Pods-travelDiary-tvOS/Pods-travelDiary-tvOS.debug.xcconfig"; sourceTree = "<group>"; };
 		2D02E47B1E0B4A5D006451C7 /* travelDiary-tvOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "travelDiary-tvOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		2D02E4901E0B4A5D006451C7 /* travelDiary-tvOSTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "travelDiary-tvOSTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		2EF9BD6C6C328383C27FBE07 /* Pods-travelDiary.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-travelDiary.debug.xcconfig"; path = "Target Support Files/Pods-travelDiary/Pods-travelDiary.debug.xcconfig"; sourceTree = "<group>"; };
-		2F28BC600B9CE4FFFE117C97 /* Pods-travelDiary-tvOSTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-travelDiary-tvOSTests.debug.xcconfig"; path = "Target Support Files/Pods-travelDiary-tvOSTests/Pods-travelDiary-tvOSTests.debug.xcconfig"; sourceTree = "<group>"; };
 		414C391229CB372FD8B81F32 /* libPods-travelDiary-tvOS.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-travelDiary-tvOS.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-		42550C18F73D1969BE8CFC72 /* Pods-travelDiaryTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-travelDiaryTests.debug.xcconfig"; path = "Target Support Files/Pods-travelDiaryTests/Pods-travelDiaryTests.debug.xcconfig"; sourceTree = "<group>"; };
-		51AD62AA9491A38E5046EBD9 /* Pods-travelDiary-tvOSTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-travelDiary-tvOSTests.release.xcconfig"; path = "Target Support Files/Pods-travelDiary-tvOSTests/Pods-travelDiary-tvOSTests.release.xcconfig"; sourceTree = "<group>"; };
+		49BA220F4BD74CDF8531E4C5 /* Pods-travelDiary-tvOSTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-travelDiary-tvOSTests.release.xcconfig"; path = "Target Support Files/Pods-travelDiary-tvOSTests/Pods-travelDiary-tvOSTests.release.xcconfig"; sourceTree = "<group>"; };
 		573E12D7E38F5BD19FBACDD3 /* libPods-travelDiary.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-travelDiary.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		5B15E66BC0FBB114DD8A601A /* libPods-travelDiaryTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-travelDiaryTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-		5DCFF33A456AC6B19E1E780E /* Pods-travelDiaryTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-travelDiaryTests.release.xcconfig"; path = "Target Support Files/Pods-travelDiaryTests/Pods-travelDiaryTests.release.xcconfig"; sourceTree = "<group>"; };
 		8612F4EBBF46663611AE5A68 /* Pods-travelDiary.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-travelDiary.release.xcconfig"; path = "Target Support Files/Pods-travelDiary/Pods-travelDiary.release.xcconfig"; sourceTree = "<group>"; };
-		A39C208C2CF446406683505F /* Pods-travelDiary-tvOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-travelDiary-tvOS.debug.xcconfig"; path = "Target Support Files/Pods-travelDiary-tvOS/Pods-travelDiary-tvOS.debug.xcconfig"; sourceTree = "<group>"; };
+		ADD702729933192E0CDC1A0A /* Pods-travelDiary-tvOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-travelDiary-tvOS.release.xcconfig"; path = "Target Support Files/Pods-travelDiary-tvOS/Pods-travelDiary-tvOS.release.xcconfig"; sourceTree = "<group>"; };
+		C3FC174FABBF8F7AC687C36F /* Pods-travelDiary-tvOSTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-travelDiary-tvOSTests.debug.xcconfig"; path = "Target Support Files/Pods-travelDiary-tvOSTests/Pods-travelDiary-tvOSTests.debug.xcconfig"; sourceTree = "<group>"; };
 		ED297162215061F000B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
 		ED2971642150620600B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = Platforms/AppleTVOS.platform/Developer/SDKs/AppleTVOS12.0.sdk/System/Library/Frameworks/JavaScriptCore.framework; sourceTree = DEVELOPER_DIR; };
 /* End PBXFileReference section */
@@ -74,7 +74,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				AEA9539B4FDB8BF562365B62 /* libPods-travelDiaryTests.a in Frameworks */,
+				1AD3D47B841E06AEC79C975F /* libPods-travelDiaryTests.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -90,7 +90,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				AE850142DC585D63ECD9DA43 /* libPods-travelDiary-tvOS.a in Frameworks */,
+				BD12FA5644F7902899FA9E54 /* libPods-travelDiary-tvOS.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -98,7 +98,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4F3F39AF90A71F5B3CEA5C0B /* libPods-travelDiary-tvOSTests.a in Frameworks */,
+				334E2E25D0C4B2897A8162FB /* libPods-travelDiary-tvOSTests.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -187,12 +187,12 @@
 			children = (
 				2EF9BD6C6C328383C27FBE07 /* Pods-travelDiary.debug.xcconfig */,
 				8612F4EBBF46663611AE5A68 /* Pods-travelDiary.release.xcconfig */,
-				A39C208C2CF446406683505F /* Pods-travelDiary-tvOS.debug.xcconfig */,
-				093B07C3930DF1E19407C9E1 /* Pods-travelDiary-tvOS.release.xcconfig */,
-				2F28BC600B9CE4FFFE117C97 /* Pods-travelDiary-tvOSTests.debug.xcconfig */,
-				51AD62AA9491A38E5046EBD9 /* Pods-travelDiary-tvOSTests.release.xcconfig */,
-				42550C18F73D1969BE8CFC72 /* Pods-travelDiaryTests.debug.xcconfig */,
-				5DCFF33A456AC6B19E1E780E /* Pods-travelDiaryTests.release.xcconfig */,
+				2617E15F8E4071C4AB21D195 /* Pods-travelDiary-tvOS.debug.xcconfig */,
+				ADD702729933192E0CDC1A0A /* Pods-travelDiary-tvOS.release.xcconfig */,
+				C3FC174FABBF8F7AC687C36F /* Pods-travelDiary-tvOSTests.debug.xcconfig */,
+				49BA220F4BD74CDF8531E4C5 /* Pods-travelDiary-tvOSTests.release.xcconfig */,
+				016E22A57728E8BBA585DD15 /* Pods-travelDiaryTests.debug.xcconfig */,
+				1898687D7BA4648E5192F8C1 /* Pods-travelDiaryTests.release.xcconfig */,
 			);
 			name = Pods;
 			path = Pods;
@@ -205,7 +205,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 00E357021AD99517003FC87E /* Build configuration list for PBXNativeTarget "travelDiaryTests" */;
 			buildPhases = (
-				51D0EEB28993F76E6285A890 /* [CP] Check Pods Manifest.lock */,
+				809F855917165C55A40AFBD1 /* [CP] Check Pods Manifest.lock */,
 				00E356EA1AD99517003FC87E /* Sources */,
 				00E356EB1AD99517003FC87E /* Frameworks */,
 				00E356EC1AD99517003FC87E /* Resources */,
@@ -230,6 +230,7 @@
 				13B07F8C1A680F5B00A75B9A /* Frameworks */,
 				13B07F8E1A680F5B00A75B9A /* Resources */,
 				00DD1BFF1BD5951E006B06BC /* Bundle React Native code and images */,
+				6B20930469D00FEBDB825584 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -244,7 +245,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 2D02E4BA1E0B4A5E006451C7 /* Build configuration list for PBXNativeTarget "travelDiary-tvOS" */;
 			buildPhases = (
-				BD502CEE5D42FC6521990C5A /* [CP] Check Pods Manifest.lock */,
+				EFEA0D3C1DD1EFF6ECCE7680 /* [CP] Check Pods Manifest.lock */,
 				FD10A7F122414F3F0027D42C /* Start Packager */,
 				2D02E4771E0B4A5D006451C7 /* Sources */,
 				2D02E4781E0B4A5D006451C7 /* Frameworks */,
@@ -264,7 +265,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 2D02E4BB1E0B4A5E006451C7 /* Build configuration list for PBXNativeTarget "travelDiary-tvOSTests" */;
 			buildPhases = (
-				18294A0F2B94A359A0368121 /* [CP] Check Pods Manifest.lock */,
+				5ABA1B8F144A4B9FD25880CB /* [CP] Check Pods Manifest.lock */,
 				2D02E48C1E0B4A5D006451C7 /* Sources */,
 				2D02E48D1E0B4A5D006451C7 /* Frameworks */,
 				2D02E48E1E0B4A5D006451C7 /* Resources */,
@@ -373,7 +374,21 @@
 			shellPath = /bin/sh;
 			shellScript = "export NODE_BINARY=node\n../node_modules/react-native/scripts/react-native-xcode.sh";
 		};
-		18294A0F2B94A359A0368121 /* [CP] Check Pods Manifest.lock */ = {
+		2D02E4CB1E0B4B27006451C7 /* Bundle React Native Code And Images */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Bundle React Native Code And Images";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "export NODE_BINARY=node\n../node_modules/react-native/scripts/react-native-xcode.sh";
+		};
+		5ABA1B8F144A4B9FD25880CB /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -395,21 +410,29 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		2D02E4CB1E0B4B27006451C7 /* Bundle React Native Code And Images */ = {
+		6B20930469D00FEBDB825584 /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
-			inputPaths = (
+			inputFileListPaths = (
 			);
-			name = "Bundle React Native Code And Images";
+			inputPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-travelDiary/Pods-travelDiary-resources.sh",
+				"${PODS_ROOT}/GoogleMaps/Maps/Frameworks/GoogleMaps.framework/Resources/GoogleMaps.bundle",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputFileListPaths = (
+			);
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/GoogleMaps.bundle",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "export NODE_BINARY=node\n../node_modules/react-native/scripts/react-native-xcode.sh";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-travelDiary/Pods-travelDiary-resources.sh\"\n";
+			showEnvVarsInLog = 0;
 		};
-		51D0EEB28993F76E6285A890 /* [CP] Check Pods Manifest.lock */ = {
+		809F855917165C55A40AFBD1 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -453,7 +476,7 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		BD502CEE5D42FC6521990C5A /* [CP] Check Pods Manifest.lock */ = {
+		EFEA0D3C1DD1EFF6ECCE7680 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -580,7 +603,7 @@
 /* Begin XCBuildConfiguration section */
 		00E356F61AD99517003FC87E /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 42550C18F73D1969BE8CFC72 /* Pods-travelDiaryTests.debug.xcconfig */;
+			baseConfigurationReference = 016E22A57728E8BBA585DD15 /* Pods-travelDiaryTests.debug.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				GCC_PREPROCESSOR_DEFINITIONS = (
@@ -603,7 +626,7 @@
 		};
 		00E356F71AD99517003FC87E /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 5DCFF33A456AC6B19E1E780E /* Pods-travelDiaryTests.release.xcconfig */;
+			baseConfigurationReference = 1898687D7BA4648E5192F8C1 /* Pods-travelDiaryTests.release.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				COPY_PHASE_STRIP = NO;
@@ -662,7 +685,7 @@
 		};
 		2D02E4971E0B4A5E006451C7 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = A39C208C2CF446406683505F /* Pods-travelDiary-tvOS.debug.xcconfig */;
+			baseConfigurationReference = 2617E15F8E4071C4AB21D195 /* Pods-travelDiary-tvOS.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = "App Icon & Top Shelf Image";
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
@@ -690,7 +713,7 @@
 		};
 		2D02E4981E0B4A5E006451C7 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 093B07C3930DF1E19407C9E1 /* Pods-travelDiary-tvOS.release.xcconfig */;
+			baseConfigurationReference = ADD702729933192E0CDC1A0A /* Pods-travelDiary-tvOS.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = "App Icon & Top Shelf Image";
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
@@ -718,7 +741,7 @@
 		};
 		2D02E4991E0B4A5E006451C7 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 2F28BC600B9CE4FFFE117C97 /* Pods-travelDiary-tvOSTests.debug.xcconfig */;
+			baseConfigurationReference = C3FC174FABBF8F7AC687C36F /* Pods-travelDiary-tvOSTests.debug.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CLANG_ANALYZER_NONNULL = YES;
@@ -745,7 +768,7 @@
 		};
 		2D02E49A1E0B4A5E006451C7 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 51AD62AA9491A38E5046EBD9 /* Pods-travelDiary-tvOSTests.release.xcconfig */;
+			baseConfigurationReference = 49BA220F4BD74CDF8531E4C5 /* Pods-travelDiary-tvOSTests.release.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CLANG_ANALYZER_NONNULL = YES;

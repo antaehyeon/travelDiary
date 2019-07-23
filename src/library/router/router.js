@@ -17,7 +17,7 @@ export default props => {
         <Modal hideNavBar>
           <Stack key="launchStack" hideNavBar>
             <Scene key="launch" component={Launch} />
-            <Scene key="main" component={Main} />
+            <Scene key="main" component={Main} initial />
             <Scene key="detail" component={Detail} />
           </Stack>
         </Modal>
