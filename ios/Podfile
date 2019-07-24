@@ -34,14 +34,9 @@ target 'travelDiary' do
   end
 
   use_native_modules!
-end
-
-target 'travelDiary-tvOS' do
-  # Pods for travelDiary-tvOS
-
-  target 'travelDiary-tvOSTests' do
-    inherit! :search_paths
-    # Pods for testing
-  end
-
+  # RN 0.60 Google Maps Pod Install List
+  pod 'react-native-google-maps', :path => '../node_modules/react-native-maps'
+  pod 'GoogleMaps'
+  pod 'Google-Maps-iOS-Utils'
+  
 end
