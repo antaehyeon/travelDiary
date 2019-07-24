@@ -5,6 +5,7 @@
       {
         "root": ["./src"],
         "alias": {
+          "~/*": "./src",
           "assets": "./assets",
           "src": "./src",
           "underscore": "lodash"

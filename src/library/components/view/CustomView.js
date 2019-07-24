@@ -3,7 +3,7 @@ import { Text, View, StyleSheet } from "react-native";
 
 export default ({ children, style, flex, row, center, align, justify, between, backColor, width, height }) => {
   let container = {
-    backgroundColor: "white"
+    backgroundColor: "transparent"
   };
 
   if (flex) container.flex = typeof flex === "string" ? flex : 1;

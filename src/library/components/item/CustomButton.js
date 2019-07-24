@@ -5,6 +5,7 @@
 
 import React from "react";
 import propTypes from "prop-types";
+import Colors from "assets/Colors.js";
 
 import { View, Text, TouchableOpacity, TouchableNativeFeedback } from "react-native";
 import { processFontType } from "src/library/components/utils/util.js";
@@ -13,7 +14,22 @@ const CustomButton = props => {
   /* *********************************************
    * Datas
    ************************************************/
-  const { containerStyle, textStyle, width, height, fontType, title, textSize, textColor, btnColor, bold, borderWidth, borderColor, radius } = props;
+  const {
+    style,
+    containerStyle,
+    textStyle,
+    width,
+    height,
+    fontType,
+    title,
+    textSize,
+    textColor,
+    btnColor,
+    bold,
+    borderWidth,
+    borderColor,
+    radius
+  } = props;
 
   /* *********************************************
    * Styles
@@ -43,8 +59,8 @@ const CustomButton = props => {
    ************************************************/
   if (Platform.OS === "android") {
     return (
-      <View style={{ width, height, borderRadius: radius, overflow: "hidden" }}>
-        <TouchableNativeFeedback {...props} background={TouchableNativeFeedback.Ripple("#1EC800")}>
+      <View style={{ width, height, borderRadius: radius, overflow: "hidden", ...style }}>
+        <TouchableNativeFeedback {...props} background={TouchableNativeFeedback.Ripple(Colors.primary)}>
           <View style={_containerStyle}>
             <Text style={_textStyle}>{title}</Text>
           </View>
@@ -63,6 +79,7 @@ const CustomButton = props => {
 };
 
 CustomButton.propTypes = {
+  style: propTypes.object,
   containerStyle: propTypes.object,
   textStyle: propTypes.object,
   width: propTypes.oneOfType([propTypes.number, propTypes.string]),
@@ -79,6 +96,7 @@ CustomButton.propTypes = {
 };
 
 CustomButton.defaultProps = {
+  style: {},
   containerStyle: {},
   textStyle: {},
   width: null,

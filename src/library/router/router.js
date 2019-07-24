@@ -19,10 +19,10 @@ export default props => {
       <Overlay key="overlay">
         <Modal hideNavBar>
           <Stack key="launchStack" hideNavBar>
-            <Scene key="launch" component={Launch} />
+            <Scene key="launch" component={Launch} initial />
             <Scene key="main" component={Main} />
             <Scene key="detail" component={Detail} />
-            <Scene key="fontTest" component={FontTest} initial />
+            <Scene key="fontTest" component={FontTest} />
           </Stack>
         </Modal>
       </Overlay>
