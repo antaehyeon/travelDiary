@@ -17,22 +17,22 @@ export default () => {
         <CustomView flex align between>
           <FontText fontType="NSL" title="T R A V E L    D I A R Y" size={24} color="white" style={{ alignSelf: "flex-end", marginRight: 24 }} />
 
-          <CustomView style={{ marginBottom: 40 }}>
+          <CustomView width="100%" style={{ marginBottom: 40, paddingHorizontal: 24 }}>
             <CustomButton
               title="일단 시작하기"
-              width={320}
+              width="100%"
               fontType="NSL"
               height={40}
               textSize={16}
               btnColor="transparent"
-              textColor={Colors.sub2}
-              borderColor={Colors.sub2}
+              textColor="white"
+              borderColor="white"
               borderWidth={0.5}
               onPress={() => Actions.main()}
             />
             <CustomButton
               title="네이버로 시작하기"
-              width={320}
+              width="100%"
               height={40}
               fontType="NSL"
               textSize={16}
