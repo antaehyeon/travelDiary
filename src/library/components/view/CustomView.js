@@ -1,7 +1,12 @@
+/**
+ * @FIX
+ * Custom View 컴포넌트 바꾸기
+ */
+
 import React, { Component } from "react";
 import { Text, View, StyleSheet } from "react-native";
 
-export default ({ children, style, flex, row, center, align, justify, between, backColor, width, height }) => {
+export default ({ children, style, flex, row, center, align, justify, between, backColor, width, height, elevation = 0, radius }) => {
   let container = {
     backgroundColor: "transparent"
   };
@@ -15,6 +20,11 @@ export default ({ children, style, flex, row, center, align, justify, between, b
   if (width) container.width = width;
   if (height) container.height = height;
   if (style) container = { ...container, ...style };
+  if (radius) container.borderRadius = radius;
 
-  return <View style={container}>{children}</View>;
+  return (
+    <View style={container} elevation={elevation}>
+      {children}
+    </View>
+  );
 };
