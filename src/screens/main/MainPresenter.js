@@ -3,33 +3,19 @@ import MapView, { PROVIDER_GOOGLE } from "react-native-maps";
 import CustomView from "src/library/components/view/CustomView.js";
 import Colors from "assets/Colors.js";
 import ImagePicker from "react-native-image-crop-picker";
+import PictureMarker from "src/library/components/item/PictureMarker.js";
 
 import { View, Text, Button, StyleSheet, Dimensions, TouchableOpacity } from "react-native";
 import { Actions } from "react-native-router-flux";
 import { Icon } from "react-native-elements";
-import { convertLocation } from "src/library/components/utils/util.js";
 
 const { width: deviceWidth } = Dimensions.get("window");
 
-const openCamera = mode => {
-  ImagePicker.openCamera({
-    includeExif: true
-  }).then(image => {
-    console.log(image);
-  });
-};
+export default props => {
+  const { hooksDatas, hooksFuncs, openCamera, openPicker, createMarkerObj, addMarkerList } = props;
+  const { markerList } = hooksDatas;
+  const { setMarkerList } = hooksFuncs;
 
-const openPicker = () => {
-  ImagePicker.openPicker({
-    includeExif: true
-  }).then(image => {
-    const lat = convertLocation(image.exif.GPSLatitude);
-    const lng = convertLocation(image.exif.GPSLongitude);
-    console.log("[Main Presenter] openPicker image result - lat, lng", { lat, lng });
-  });
-};
-
-export default () => {
   return (
     <CustomView flex>
       <MapView
@@ -41,8 +27,14 @@ export default () => {
           latitudeDelta: 0.015,
           longitudeDelta: 0.0121
         }}
-      />
-      <TouchableOpacity style={styles.cameraIconContainer} onPress={openPicker}>
+      >
+        {markerList.map(marker => {
+          const { latitude, longitude, imageUri } = marker;
+
+          return <PictureMarker latitude={latitude} longitude={longitude} imageUri={imageUri} />;
+        })}
+      </MapView>
+      <TouchableOpacity style={styles.cameraIconContainer} onPress={() => openPicker(markerList, { setMarkerList, createMarkerObj, addMarkerList })}>
         <CustomView center width={72} height={72} radius={36} backColor={Colors.primary} elevation={5}>
           <Icon type="feather" name="camera" size={24} color="white" />
         </CustomView>
@@ -59,6 +51,7 @@ const styles = StyleSheet.create({
     justifyContent: "flex-end",
     alignItems: "center"
   },
+
   map: {
     ...StyleSheet.absoluteFillObject
   },
