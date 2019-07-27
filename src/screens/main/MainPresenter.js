@@ -7,6 +7,7 @@ import ImagePicker from "react-native-image-crop-picker";
 import { View, Text, Button, StyleSheet, Dimensions, TouchableOpacity } from "react-native";
 import { Actions } from "react-native-router-flux";
 import { Icon } from "react-native-elements";
+import { convertLocation } from "src/library/components/utils/util.js";
 
 const { width: deviceWidth } = Dimensions.get("window");
 
@@ -22,7 +23,9 @@ const openPicker = () => {
   ImagePicker.openPicker({
     includeExif: true
   }).then(image => {
-    console.log(image);
+    const lat = convertLocation(image.exif.GPSLatitude);
+    const lng = convertLocation(image.exif.GPSLongitude);
+    console.log("[Main Presenter] openPicker image result - lat, lng", { lat, lng });
   });
 };
 
@@ -33,8 +36,8 @@ export default () => {
         provider={PROVIDER_GOOGLE} // remove if not using Google Maps
         style={styles.map}
         region={{
-          latitude: 37.78825,
-          longitude: -122.4324,
+          latitude: 37.5561111,
+          longitude: 126.94833333333334,
           latitudeDelta: 0.015,
           longitudeDelta: 0.0121
         }}
