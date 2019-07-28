@@ -27,6 +27,8 @@ export default props => {
           latitudeDelta: 0.015,
           longitudeDelta: 0.0121
         }}
+        showsUserLocation={true}
+        showsMyLocationButton={true}
       >
         {markerList.map(marker => {
           const { latitude, longitude, imageUri } = marker;
