@@ -30,10 +30,11 @@ export default props => {
         showsUserLocation={true}
         showsMyLocationButton={true}
       >
-        {markerList.map(marker => {
+        {markerList.map((marker, idx) => {
+          console.log("[MAIN PRESENTER] markerList map marker", marker);
           const { latitude, longitude, imageUri } = marker;
 
-          return <PictureMarker latitude={latitude} longitude={longitude} imageUri={imageUri} />;
+          return <PictureMarker key={idx} latitude={latitude} longitude={longitude} imageUri={imageUri} />;
         })}
       </MapView>
       <TouchableOpacity style={styles.cameraIconContainer} onPress={() => openPicker(markerList, { setMarkerList, createMarkerObj, addMarkerList })}>
