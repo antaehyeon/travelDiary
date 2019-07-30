@@ -1,59 +1,85 @@
-import React, { useState, useEffect } from "react";
-import Presenter from "src/screens/main/MainPresenter.js";
 import _ from "lodash";
+import React, { useState, useEffect, useRef } from "react";
+import Presenter from "src/screens/main/MainPresenter.js";
 import ImagePicker from "react-native-image-crop-picker";
+import AsyncStorage from "@react-native-community/async-storage";
 
-import { View, Text } from "react-native";
+import { View, Text, Platform } from "react-native";
 import { convertLocation } from "src/library/components/utils/util.js";
+import { requestTourList } from "src/library/networking/networking.js";
 
 export default () => {
+  const [isLoading, setIsLoading] = useState(true);
   const [markerList, setMarkerList] = useState([]);
+  const [tourMode, setTourMode] = useState(true);
 
-  const hooksDatas = { markerList };
-  const hooksFuncs = { setMarkerList };
+  const hooksDatas = { markerList, tourMode };
+  const hooksFuncs = { setMarkerList, setTourMode };
+
+  const mapViewRef = useRef();
 
   useEffect(() => {
-    requestTourList().then(({ response }) => {
-      console.log(response.body.items.item);
+    const getLoginFlag = async () => {
+      const loginFlag = await AsyncStorage.getItem("@first_login");
+      console.log("[MAIN CONTAINER] useEffect loginFlag", loginFlag);
+    };
 
-      const tourListFromServer = response.body.items.item;
-      const tourList = [];
-
-      tourListFromServer.map(tourData => {
-        const _tourObject = {
-          latitude: tourData.mapy,
-          longitude: tourData.mapx,
-          imageUri: tourData.firstimage
-        };
-        console.log("[MAIN CONTAINER] useEffect _tourObject", _tourObject);
-
-        tourList.push(_tourObject);
-      });
-
-      console.log("[MAIN CONTAINER] tourList", tourList);
-
-      setMarkerList(tourList);
-    });
+    getLoginFlag();
+    setIsLoading(false);
+    drawTourMarkerToMap();
   }, []);
 
-  const requestTourList = async () => {
-    return fetch(
-      "http://api.visitkorea.or.kr/openapi/service/rest/KorService/locationBasedList?serviceKey=qzl9%2F81ElJeTcryy3QygJcJ6MgjLTh9Mbg3jOhf802bjStgQ%2BfqBiy4lC2aHuEg3VZxIsiM97zxzNE0TgGwaoQ%3D%3D&numOfRows=100&pageNo=1&MobileOS=ETC&MobileApp=AppTest&listYN=Y&arrange=A&mapX=126.94833333333334&mapY=37.5561111&radius=5000",
-      {
-        headers: {
-          Accept: "application/json",
-          "Content-Type": "application/json"
-        }
-      }
-    )
-      .then(response => response.json())
-      .then(responseJson => {
-        console.log("[MAIN CONTAINER] fetch responseJson", responseJson);
-        return responseJson;
-      })
-      .catch(error => {
-        console.error(error);
-      });
+  /**
+   * use react-native-maps (dataType)
+   */
+  const createCameraObject = (latitude, longitude, pitch, heading, zoom) => {
+    const result = {
+      center: {
+        latitude,
+        longitude
+      },
+      pitch,
+      heading,
+      zoom
+    };
+
+    return result;
+  };
+
+  const setMapCameraLocation = (ref, cameraObj) => {
+    const DURATION = 1500;
+
+    console.log("setMapCameraLocation ref", ref);
+    console.log("setMapCameraLocation cameraObj", cameraObj);
+
+    ref.current.setCamera(cameraObj, DURATION);
+  };
+
+  const createMarkerList = serverTourList => {
+    console.log("[MAIN CONTAINER] createMarkerList serverTourList", serverTourList);
+    const _tourList = [];
+    serverTourList.map(tourData => {
+      const _tourObject = {
+        type: "tourAPI",
+        title: tourData.title,
+        latitude: parseFloat(tourData.mapy),
+        longitude: parseFloat(tourData.mapx),
+        imageUri: tourData.firstimage ? tourData.firstimage : ""
+      };
+      _tourList.push(_tourObject);
+    });
+
+    return _tourList;
+  };
+
+  const drawTourMarkerToMap = () => {
+    requestTourList().then(({ response }) => {
+      console.log("[MAIN CONTAINER] processMarker result", response);
+      const tourListFromServer = response.body.items.item;
+      const tourList = createMarkerList(tourListFromServer);
+      console.log("[MAIN CONTAINER] drawTourMarkerToMap tourList", tourList);
+      setMarkerList(tourList);
+    });
   };
 
   const addMarkerList = (markerObj, markerList, setMarkerList) => {
@@ -68,6 +94,7 @@ export default () => {
   const createMarkerObj = image => {
     const { latitude, longitude } = createGPSInfo(image.exif);
     const result = {
+      type: "user",
       latitude,
       longitude,
       imageUri: image.path
@@ -78,7 +105,16 @@ export default () => {
   };
 
   const createGPSInfo = exifInfo => {
-    const result = { latitude: convertLocation(exifInfo.GPSLatitude), longitude: convertLocation(exifInfo.GPSLongitude) };
+    let result = {};
+
+    if (Platform.OS === "ios") {
+      result = {
+        latitude: exifInfo["{GPS}"].Latitude,
+        longitude: exifInfo["{GPS}"].Longitude
+      };
+    } else {
+      result = { latitude: convertLocation(exifInfo.GPSLatitude), longitude: convertLocation(exifInfo.GPSLongitude) };
+    }
     console.log("[MAIN CONTAINER] createGPSInfo result", result);
     return result;
   };
@@ -91,30 +127,44 @@ export default () => {
     });
   };
 
-  const openPicker = (markerList, callbacks) => {
+  const openPicker = (ref, markerList, callbacks) => {
     ImagePicker.openPicker({
       includeExif: true
     })
       .then(image => {
         console.log("[MAIN CONTAINER] openPicker SUCCESS", image);
-        const { setMarkerList, createMarkerObj, addMarkerList } = callbacks;
+        const { setMarkerList, createMarkerObj, addMarkerList, createCameraObject, setMapCameraLocation } = callbacks;
         const markerObj = createMarkerObj(image);
         addMarkerList(markerObj, markerList, setMarkerList);
+        const cameraObj = createCameraObject(markerObj.latitude, markerObj.longitude, 0, 0, 16);
+        console.log("[MAIN CONTAINER] openPicker cameraObj", cameraObj);
+        setMapCameraLocation(ref, cameraObj);
       })
       .catch(err => {
         console.log("[[MAIN CONTAINER] openPicker ERROR", err);
       });
   };
 
+  if (isLoading) {
+    return (
+      <View>
+        <Text>Loading ...</Text>
+      </View>
+    );
+  }
+
   return (
     <View style={{ flex: 1 }}>
       <Presenter
+        mapViewRef={mapViewRef}
         hooksDatas={hooksDatas}
         hooksFuncs={hooksFuncs}
         openCamera={openCamera}
         openPicker={openPicker}
         createMarkerObj={createMarkerObj}
         addMarkerList={addMarkerList}
+        createCameraObject={createCameraObject}
+        setMapCameraLocation={setMapCameraLocation}
       />
     </View>
   );

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useRef } from "react";
 import MapView, { PROVIDER_GOOGLE } from "react-native-maps";
 import CustomView from "src/library/components/view/CustomView.js";
 import Colors from "assets/Colors.js";
@@ -12,13 +12,37 @@ import { Icon } from "react-native-elements";
 const { width: deviceWidth } = Dimensions.get("window");
 
 export default props => {
-  const { hooksDatas, hooksFuncs, openCamera, openPicker, createMarkerObj, addMarkerList } = props;
-  const { markerList } = hooksDatas;
-  const { setMarkerList } = hooksFuncs;
+  const {
+    mapViewRef,
+    hooksDatas,
+    hooksFuncs,
+    openCamera,
+    openPicker,
+    createMarkerObj,
+    addMarkerList,
+    createCameraObject,
+    setMapCameraLocation
+  } = props;
+  const { markerList, tourMode } = hooksDatas;
+  const { setMarkerList, setTourMode } = hooksFuncs;
+
+  // const mapViewRef = useRef();
+
+  useEffect(() => {
+    // console.log("[MAIN PRESENTER] useEffect mapViewRef.getCamera()", mapViewRef.getCamera());
+    console.log("[MAIN PRESENTER] useEffect mapViewRef", mapViewRef);
+    // console.log("[MAIN PRESENTER] useEffect getCamera()", mapViewRef.current.getCamera().then(res => {
+    //   console.log()
+    // }));
+    mapViewRef.current.getCamera().then(res => {
+      console.log("[MAIN PRESENTER] useEffect getCamera RESULT", res);
+    });
+  }, []);
 
   return (
     <CustomView flex>
       <MapView
+        ref={mapViewRef}
         provider={PROVIDER_GOOGLE} // remove if not using Google Maps
         style={styles.map}
         region={{
@@ -27,17 +51,23 @@ export default props => {
           latitudeDelta: 0.015,
           longitudeDelta: 0.0121
         }}
-        showsUserLocation={true}
-        showsMyLocationButton={true}
+        // current button - android 동작안함
+        // showsUserLocation={true}
+        // showsMyLocationButton={true}
       >
         {markerList.map((marker, idx) => {
-          console.log("[MAIN PRESENTER] markerList map marker", marker);
-          const { latitude, longitude, imageUri } = marker;
-
-          return <PictureMarker key={idx} latitude={latitude} longitude={longitude} imageUri={imageUri} />;
+          // console.log("[MAIN PRESENTER] markerList map marker", marker);
+          const { type, title, latitude, longitude, imageUri } = marker;
+          if (type === "tourAPI") return;
+          return <PictureMarker key={idx} title={title} latitude={latitude} longitude={longitude} imageUri={imageUri} />;
         })}
       </MapView>
-      <TouchableOpacity style={styles.cameraIconContainer} onPress={() => openPicker(markerList, { setMarkerList, createMarkerObj, addMarkerList })}>
+      <TouchableOpacity
+        style={styles.cameraIconContainer}
+        onPress={() =>
+          openPicker(mapViewRef, markerList, { setMarkerList, createMarkerObj, addMarkerList, createCameraObject, setMapCameraLocation })
+        }
+      >
         <CustomView center width={72} height={72} radius={36} backColor={Colors.primary} elevation={5}>
           <Icon type="feather" name="camera" size={24} color="white" />
         </CustomView>
