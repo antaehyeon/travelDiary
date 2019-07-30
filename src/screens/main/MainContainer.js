@@ -11,10 +11,11 @@ import { requestTourList } from "src/library/networking/networking.js";
 export default () => {
   const [isLoading, setIsLoading] = useState(true);
   const [markerList, setMarkerList] = useState([]);
-  const [tourMode, setTourMode] = useState(true);
+  const [tourMode, setTourMode] = useState(false);
+  const [routeMode, setRouteMode] = useState(false);
 
-  const hooksDatas = { markerList, tourMode };
-  const hooksFuncs = { setMarkerList, setTourMode };
+  const hooksDatas = { markerList, tourMode, routeMode };
+  const hooksFuncs = { setMarkerList, setTourMode, setRouteMode };
 
   const mapViewRef = useRef();
 
@@ -28,6 +29,16 @@ export default () => {
     setIsLoading(false);
     drawTourMarkerToMap();
   }, []);
+
+  const createPolyLineCoordinates = markerList => {
+    const result = [];
+    markerList.map(({ type, latitude, longitude }) => {
+      if (type === "tourAPI") return;
+      result.push({ latitude, longitude });
+    });
+
+    return result;
+  };
 
   /**
    * use react-native-maps (dataType)
@@ -165,6 +176,7 @@ export default () => {
         addMarkerList={addMarkerList}
         createCameraObject={createCameraObject}
         setMapCameraLocation={setMapCameraLocation}
+        createPolyLineCoordinates={createPolyLineCoordinates}
       />
     </View>
   );

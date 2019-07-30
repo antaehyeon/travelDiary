@@ -1,5 +1,5 @@
-import React, { useEffect, useRef } from "react";
-import MapView, { PROVIDER_GOOGLE } from "react-native-maps";
+import React, { useEffect } from "react";
+import MapView, { PROVIDER_GOOGLE, Polyline } from "react-native-maps";
 import CustomView from "src/library/components/view/CustomView.js";
 import Colors from "assets/Colors.js";
 import ImagePicker from "react-native-image-crop-picker";
@@ -21,23 +21,11 @@ export default props => {
     createMarkerObj,
     addMarkerList,
     createCameraObject,
-    setMapCameraLocation
+    setMapCameraLocation,
+    createPolyLineCoordinates
   } = props;
-  const { markerList, tourMode } = hooksDatas;
-  const { setMarkerList, setTourMode } = hooksFuncs;
-
-  // const mapViewRef = useRef();
-
-  useEffect(() => {
-    // console.log("[MAIN PRESENTER] useEffect mapViewRef.getCamera()", mapViewRef.getCamera());
-    console.log("[MAIN PRESENTER] useEffect mapViewRef", mapViewRef);
-    // console.log("[MAIN PRESENTER] useEffect getCamera()", mapViewRef.current.getCamera().then(res => {
-    //   console.log()
-    // }));
-    mapViewRef.current.getCamera().then(res => {
-      console.log("[MAIN PRESENTER] useEffect getCamera RESULT", res);
-    });
-  }, []);
+  const { markerList, tourMode, routeMode } = hooksDatas;
+  const { setMarkerList, setTourMode, setRouteMode } = hooksFuncs;
 
   return (
     <CustomView flex>
@@ -61,6 +49,13 @@ export default props => {
           if (type === "tourAPI") return;
           return <PictureMarker key={idx} title={title} latitude={latitude} longitude={longitude} imageUri={imageUri} />;
         })}
+        {routeMode && (
+          <Polyline
+            coordinates={createPolyLineCoordinates(markerList)}
+            strokeColor={Colors.primary} // fallback for when `strokeColors` is not supported by the map-provider
+            strokeWidth={1}
+          />
+        )}
       </MapView>
       <TouchableOpacity
         style={styles.cameraIconContainer}
