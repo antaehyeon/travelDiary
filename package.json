@@ -12,10 +12,11 @@
     "lint": "eslint ."
   },
   "dependencies": {
+    "@react-native-community/async-storage": "^1.6.1",
     "apollo-boost": "^0.4.3",
     "babel-plugin-module-resolver": "^3.2.0",
-    "lodash": "^4.17.15",
     "graphql": "^14.4.2",
+    "lodash": "^4.17.15",
     "react": "16.8.6",
     "react-apollo": "^2.5.8",
     "react-native": "0.60.4",
@@ -23,6 +24,8 @@
     "react-native-image-crop-picker": "^0.25.0",
     "react-native-maps": "0.25.0",
     "react-native-router-flux": "^4.0.6",
+    "react-native-sqlite-storage": "^3.3.11",
+    "react-native-tiny-toast": "^1.0.3",
     "react-native-vector-icons": "^6.6.0"
   },
   "devDependencies": {
