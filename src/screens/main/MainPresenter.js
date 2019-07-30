@@ -4,6 +4,7 @@ import CustomView from "src/library/components/view/CustomView.js";
 import Colors from "assets/Colors.js";
 import ImagePicker from "react-native-image-crop-picker";
 import PictureMarker from "src/library/components/item/PictureMarker.js";
+import RegisterMarkerContentModal from "src/library/components/modal/registerMarkerContent.js";
 
 import { View, Text, Button, StyleSheet, Dimensions, TouchableOpacity } from "react-native";
 import { Actions } from "react-native-router-flux";
@@ -29,6 +30,7 @@ export default props => {
 
   return (
     <CustomView flex>
+      <RegisterMarkerContentModal isVisible={true} />
       <MapView
         ref={mapViewRef}
         provider={PROVIDER_GOOGLE} // remove if not using Google Maps

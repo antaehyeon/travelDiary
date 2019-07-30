@@ -3,6 +3,7 @@ import React, { useState, useEffect, useRef } from "react";
 import Presenter from "src/screens/main/MainPresenter.js";
 import ImagePicker from "react-native-image-crop-picker";
 import AsyncStorage from "@react-native-community/async-storage";
+import Toast from "react-native-tiny-toast";
 
 import { View, Text, Platform } from "react-native";
 import { convertLocation } from "src/library/components/utils/util.js";

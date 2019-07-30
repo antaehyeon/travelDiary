@@ -23,6 +23,7 @@
     "react-native-elements": "^1.1.0",
     "react-native-image-crop-picker": "^0.25.0",
     "react-native-maps": "0.25.0",
+    "react-native-modal": "^11.3.0",
     "react-native-router-flux": "^4.0.6",
     "react-native-sqlite-storage": "^3.3.11",
     "react-native-tiny-toast": "^1.0.3",

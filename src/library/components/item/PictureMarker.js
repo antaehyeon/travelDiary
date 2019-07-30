@@ -1,7 +1,8 @@
 import React from "react";
 import CustomView from "src/library/components/view/CustomView.js";
 
-import { View, Text, Image, StyleSheet } from "react-native";
+import { Actions } from "react-native-router-flux";
+import { View, Text, Image, StyleSheet, TouchableOpacity } from "react-native";
 import { Icon } from "react-native-elements";
 import { Marker } from "react-native-maps";
 
@@ -9,7 +10,7 @@ const PictureMarker = props => {
   const { title = "", description = "", latitude = 0, longitude = 0, imageUri = "" } = props;
 
   return (
-    <Marker coordinate={{ latitude, longitude }} title={title} description={description}>
+    <Marker coordinate={{ latitude, longitude }} title={title} description={description} onPress={() => Actions.detail()}>
       <CustomView width={50} height={50}>
         <Icon type="font-awesome" name="map-marker" size={50} color="black" />
         <Image key={imageUri} source={{ uri: imageUri }} style={styles.markerImage} />
