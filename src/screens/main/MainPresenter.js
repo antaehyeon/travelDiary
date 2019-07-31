@@ -1,17 +1,14 @@
-import React, { useEffect } from "react";
+import React from "react";
 import MapView, { PROVIDER_GOOGLE, Polyline } from "react-native-maps";
 import CustomView from "src/library/components/view/CustomView.js";
 import Colors from "assets/Colors.js";
-import ImagePicker from "react-native-image-crop-picker";
 import PictureMarker from "src/library/components/item/PictureMarker.js";
 import RegisterMarkerContentModal from "src/library/components/modal/registerMarkerContent.js";
 import SettingModal from "src/library/components/modal/SettingModal.js";
 import TourListModal from "src/library/components/modal/TripListModal.js";
 
-import { View, Text, Button, StyleSheet, Dimensions, TouchableOpacity } from "react-native";
-import { Actions } from "react-native-router-flux";
+import { StyleSheet, Dimensions, TouchableOpacity } from "react-native";
 import { Icon } from "react-native-elements";
-import { openDB, deleteUserTourListToDB } from "src/library/db/sqlite.js";
 
 const { width: deviceWidth } = Dimensions.get("window");
 

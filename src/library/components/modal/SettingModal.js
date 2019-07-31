@@ -1,13 +1,10 @@
 import React, { useRef } from "react";
 import Modal from "react-native-modal";
 import CustomView from "src/library/components/view/CustomView.js";
-import FontText from "src/library/components/item/FontText.js";
-import Colors from "assets/Colors.js";
 import CustomButton from "src/library/components/item/CustomButton.js";
-import { openDB, deleteTourListToDB, deleteUserTourListToDB, getTableDatas } from "src/library/db/sqlite.js";
+import { openDB, deleteUserTourListToDB, getTableDatas } from "src/library/db/sqlite.js";
 
-import { View, Text, Dimensions, StyleSheet, ScrollView, KeyboardAvoidingView, Platform, TouchableOpacity } from "react-native";
-import { Input } from "react-native-elements";
+import { TouchableOpacity } from "react-native";
 
 const deleteUserTourListData = callback => {
   const db = openDB();

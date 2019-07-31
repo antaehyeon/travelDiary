@@ -7,7 +7,7 @@ import { Icon } from "react-native-elements";
 import { Marker } from "react-native-maps";
 
 const PictureMarker = props => {
-  const { id = null, title = "", description = "", latitude = 0, longitude = 0, imageUri = "" } = props;
+  const { latitude = 0, longitude = 0, imageUri = "" } = props;
 
   return (
     <Marker coordinate={{ latitude, longitude }} onPress={() => Actions.detail({ ...props })}>

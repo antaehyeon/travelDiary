@@ -3,7 +3,6 @@ import Modal from "react-native-modal";
 import CustomView from "src/library/components/view/CustomView.js";
 import FontText from "src/library/components/item/FontText.js";
 import Colors from "assets/Colors.js";
-import CustomButton from "src/library/components/item/CustomButton.js";
 
 import { ScrollView, ImageBackground, StyleSheet, TouchableOpacity } from "react-native";
 import { openDB, getTableDatas } from "src/library/db/sqlite.js";
@@ -64,7 +63,5 @@ const TripListModal = props => {
     </CustomView>
   );
 };
-
-const styles = StyleSheet.create({});
 
 export default TripListModal;

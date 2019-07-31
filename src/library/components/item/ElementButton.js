@@ -17,7 +17,6 @@ const CustomButton = props => {
   /* *********************************************
    * Datas (Default-Custom)
    ************************************************/
-  // const {} = props;
   const { width, height, type, title, textSize, textColor, backColor, bold, borderWidth, borderColor, radius } = props;
 
   /* *********************************************

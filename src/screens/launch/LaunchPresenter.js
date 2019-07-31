@@ -4,7 +4,7 @@ import FontText from "src/library/components/item/FontText.js";
 import CustomButton from "src/library/components/item/CustomButton.js";
 import Colors from "assets/Colors.js";
 
-import { View, Text, Button, StyleSheet, SafeAreaView } from "react-native";
+import { SafeAreaView } from "react-native";
 import { Actions } from "react-native-router-flux";
 
 const naverColor = "#62c92e";

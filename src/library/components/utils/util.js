@@ -18,7 +18,6 @@ export const processFontType = fontType => {
 };
 
 export const convertLocation = param => {
-  console.log("[UTIL] convertLocation param", param);
   let result = 0.0;
   const M = 60;
   const S = 3600;
@@ -36,12 +35,10 @@ export const convertLocation = param => {
     else result += DMSdata;
   });
 
-  console.log("[UTIL] convertLocation result", result);
   return result;
 };
 
 export const convertOnlyNumber = param => {
-  // const onlyNumRegex = /^[0-9]+$/;
   const onlyNumRegex = /[^(0-9)]/gi;
   const result = param.replace(onlyNumRegex, "");
   return result;

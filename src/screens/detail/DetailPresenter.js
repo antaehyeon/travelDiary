@@ -4,7 +4,7 @@ import FontText from "src/library/components/item/FontText.js";
 import Colors from "assets/Colors.js";
 import CustomButton from "src/library/components/item/CustomButton.js";
 
-import { View, Text, Button, SafeAreaView, TouchableOpacity, Image } from "react-native";
+import { SafeAreaView, TouchableOpacity, Image } from "react-native";
 import { Actions } from "react-native-router-flux";
 import { Icon } from "react-native-elements";
 

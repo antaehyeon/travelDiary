@@ -2,12 +2,10 @@ import _ from "lodash";
 import React, { useState, useEffect, useRef } from "react";
 import Presenter from "src/screens/main/MainPresenter.js";
 import ImagePicker from "react-native-image-crop-picker";
-import AsyncStorage from "@react-native-community/async-storage";
-import Toast from "react-native-tiny-toast";
 
 import { View, Text, Platform } from "react-native";
 import { convertLocation, convertOnlyNumber } from "src/library/components/utils/util.js";
-import { openDB, addUserTourDataToDB, getTableDatas, deleteUserTourListToDB } from "src/library/db/sqlite.js";
+import { openDB, getTableDatas } from "src/library/db/sqlite.js";
 
 const ewhaUnivRegion = {
   latitude: 37.5561111,
@@ -21,7 +19,6 @@ export default () => {
   const [currentUploadedImage, setCurrentUploadedImage] = useState(null);
   const [isLoading, setIsLoading] = useState(true);
   const [markerList, setMarkerList] = useState([]);
-  const [tourList, setTourList] = useState([]);
   const [tourMode, setTourMode] = useState(false);
   const [routeMode, setRouteMode] = useState(false);
   const [writingMode, setWritingMode] = useState(false);
@@ -33,20 +30,9 @@ export default () => {
   const mapViewRef = useRef();
 
   useEffect(() => {
-    // const storeLoginFlag = async () => {
-    //   await AsyncStorage.setItem("@first_login", "false");
-    // };
-
-    // storeLoginFlag();
-    // getLoginFlag();
     setIsLoading(false);
-    // drawTourMarkerToMap();
     drawExsitingUserTourList(setMarkerList);
   }, []);
-
-  useEffect(() => {
-    console.log("[MAIN CONTAINER] useEffect markerList", markerList);
-  }, [markerList]);
 
   const createRegion = (latitude, longitude) => {
     const result = {
@@ -55,7 +41,6 @@ export default () => {
       latitudeDelta: 0.015,
       longitudeDelta: 0.0121
     };
-    console.log("[MAIN CONTAINER] createRegion result", result);
 
     return result;
   };
@@ -79,7 +64,6 @@ export default () => {
     const dataStamp = convertOnlyNumber(_dataStamp);
     const TimeStamp = convertOnlyNumber(_timeStamp);
     const result = image.width + image.height + image.size + dataStamp + TimeStamp;
-    console.log("[MAIN CONTAINER] generateUserTourID", result);
     return parseInt(result / 1000000000007);
   };
 
@@ -98,7 +82,6 @@ export default () => {
     result.updatedTime = convertOnlyNumber(timeStamp);
     result.latitude = latitude;
     result.longitude = longitude;
-    console.log("[MAIN CONTAINER] createUserTourDbData result", result);
 
     return result;
   };
@@ -132,46 +115,13 @@ export default () => {
 
   const setMapCameraLocation = (ref, cameraObj) => {
     const DURATION = 1500;
-
-    console.log("setMapCameraLocation ref", ref);
-    console.log("setMapCameraLocation cameraObj", cameraObj);
-
     ref.current.setCamera(cameraObj, DURATION);
   };
 
-  // const createMarkerList = serverTourList => {
-  //   console.log("[MAIN CONTAINER] createMarkerList serverTourList", serverTourList);
-  //   const _tourList = [];
-  //   serverTourList.map(tourData => {
-  //     const _tourObject = {
-  //       type: "tourAPI",
-  //       title: tourData.title,
-  //       latitude: parseFloat(tourData.mapy),
-  //       longitude: parseFloat(tourData.mapx),
-  //       imageUri: tourData.firstimage ? tourData.firstimage : ""
-  //     };
-  //     _tourList.push(_tourObject);
-  //   });
-
-  //   return _tourList;
-  // };
-
-  // const drawTourMarkerToMap = () => {
-  //   requestTourList().then(({ response }) => {
-  //     console.log("[MAIN CONTAINER] processMarker result", response);
-  //     const tourListFromServer = response.body.items.item;
-  //     const tourList = createMarkerList(tourListFromServer);
-  //     console.log("[MAIN CONTAINER] drawTourMarkerToMap tourList", tourList);
-  //     setTourList(tourList);
-  //   });
-  // };
-
   const addMarkerList = (markerObj, markerList, setMarkerList) => {
     const _markerList = _.cloneDeep(markerList);
-    console.log("[MAIN CONTAINER] addMarkerList _markerList", _markerList);
 
     _markerList.unshift(markerObj);
-    console.log("[MAIN CONTAINER] _markerList", _markerList);
     setMarkerList(_markerList);
   };
 
@@ -184,7 +134,6 @@ export default () => {
       imageUri: image.path
     };
 
-    console.log("[MAIN CONTAINER] createMarkerObj result", result);
     return result;
   };
 
@@ -199,7 +148,6 @@ export default () => {
     } else {
       result = { latitude: convertLocation(exifInfo.GPSLatitude), longitude: convertLocation(exifInfo.GPSLongitude) };
     }
-    console.log("[MAIN CONTAINER] createGPSInfo result", result);
     return result;
   };
 
@@ -216,12 +164,10 @@ export default () => {
       includeExif: true
     })
       .then(image => {
-        console.log("[MAIN CONTAINER] openPicker SUCCESS", image);
         const { setMarkerList, createMarkerObj, addMarkerList, createCameraObject, setMapCameraLocation } = callbacks;
         const markerObj = createMarkerObj(image);
         addMarkerList(markerObj, markerList, setMarkerList);
         const cameraObj = createCameraObject(markerObj.latitude, markerObj.longitude, 0, 0, 16);
-        console.log("[MAIN CONTAINER] openPicker cameraObj", cameraObj);
         setRegion(createRegion(markerObj.latitude, markerObj.longitude));
         setCurrentUploadedImage(image);
         setWritingMode(true);

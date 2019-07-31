@@ -11,11 +11,6 @@ export default () => {
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
-    const getLoginFlag = async () => {
-      const loginFlag = await AsyncStorage.getItem("@first_login");
-      console.log("[MAIN CONTAINER] useEffect loginFlag", loginFlag);
-      return loginFlag;
-    };
     setIsLoading(false);
     createDB();
     storeTourListToDB();
@@ -45,7 +40,6 @@ export default () => {
       const tourListFromServer = response.body.items.item;
       const tourList = processTourData(db, tourListFromServer);
       console.log("[MAIN CONTAINER] drawTourMarkerToMap tourList", tourList);
-      // setTourList(tourList);
     });
   };
 

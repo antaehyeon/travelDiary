@@ -3,8 +3,8 @@
  * Custom View 컴포넌트 바꾸기
  */
 
-import React, { Component } from "react";
-import { Text, View, StyleSheet } from "react-native";
+import React from "react";
+import { View } from "react-native";
 
 export default ({ children, style, flex, row, center, align, justify, between, backColor, width, height, elevation = 0, radius }) => {
   let container = {
