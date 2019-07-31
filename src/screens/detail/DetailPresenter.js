@@ -11,7 +11,7 @@ import { Icon } from "react-native-elements";
 export default props => {
   console.log("[DETAIL PRESENTER] props", props);
 
-  const { title = "앗! 제목이 없어요", description = "앗! 설명이 없어요", imageUri = "" } = props;
+  const { mode, title = "앗! 제목이 없어요", description = "앗! 설명이 없어요", imageUri = "", mainAddr } = props;
 
   const moveBackScreen = () => Actions.pop();
 
@@ -40,7 +40,11 @@ export default props => {
             <FontText title={title} fontType="NSB" size={32} color="white" />
           </CustomView>
 
-          <FontText title={description} fontType="NSL" size={24} color="white" />
+          {mode === "tourAPI" ? (
+            <FontText title={`이곳의 주소는\n${mainAddr} 입니다`} fontType="NSL" size={24} color="white" />
+          ) : (
+            <FontText title={description} fontType="NSL" size={24} color="white" />
+          )}
           <CustomView>
             <CustomButton
               title="뒤 로 가 기"

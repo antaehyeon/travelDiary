@@ -6,6 +6,7 @@ import ImagePicker from "react-native-image-crop-picker";
 import PictureMarker from "src/library/components/item/PictureMarker.js";
 import RegisterMarkerContentModal from "src/library/components/modal/registerMarkerContent.js";
 import SettingModal from "src/library/components/modal/SettingModal.js";
+import TourListModal from "src/library/components/modal/TripListModal.js";
 
 import { View, Text, Button, StyleSheet, Dimensions, TouchableOpacity } from "react-native";
 import { Actions } from "react-native-router-flux";
@@ -37,6 +38,7 @@ export default props => {
 
   return (
     <CustomView flex>
+      <TourListModal isVisible={tourMode} setTourMode={setTourMode} />
       <RegisterMarkerContentModal
         isVisible={writingMode}
         setWritingMode={setWritingMode}
@@ -60,12 +62,12 @@ export default props => {
           <Icon type="feather" name="camera" size={24} color="white" />
         </CustomView>
       </TouchableOpacity>
-      <TouchableOpacity style={[styles.IconContainer, styles.settingIconContainer]} onPress={() => setSettingMode(!settingMode)}>
+      <TouchableOpacity style={[styles.IconContainer, styles.settingIconContainer]} onPress={() => setSettingMode(true)}>
         <CustomView center width={36} height={36} radius={18} backColor="white" elevation={5}>
           <Icon type="simple-line-icon" name="settings" size={16} />
         </CustomView>
       </TouchableOpacity>
-      <TouchableOpacity style={[styles.IconContainer, styles.tripIconContainer]} onPress={() => setSettingMode(!settingMode)}>
+      <TouchableOpacity style={[styles.IconContainer, styles.tripIconContainer]} onPress={() => setTourMode(true)}>
         <CustomView center width={36} height={36} radius={18} backColor="white" elevation={5}>
           <Icon type="material" name="card-travel" size={16} />
         </CustomView>
