@@ -10,7 +10,7 @@ const PictureMarker = props => {
   const { title = "", description = "", latitude = 0, longitude = 0, imageUri = "" } = props;
 
   return (
-    <Marker coordinate={{ latitude, longitude }} title={title} description={description} onPress={() => Actions.detail()}>
+    <Marker coordinate={{ latitude, longitude }} onPress={() => Actions.detail(props)}>
       <CustomView width={50} height={50}>
         <Icon type="font-awesome" name="map-marker" size={50} color="black" />
         <Image key={imageUri} source={{ uri: imageUri }} style={styles.markerImage} />
