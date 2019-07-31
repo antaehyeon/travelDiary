@@ -6,8 +6,9 @@ import AsyncStorage from "@react-native-community/async-storage";
 import Toast from "react-native-tiny-toast";
 
 import { View, Text, Platform } from "react-native";
-import { convertLocation } from "src/library/components/utils/util.js";
+import { convertLocation, convertOnlyNumber } from "src/library/components/utils/util.js";
 import { requestTourList } from "src/library/networking/networking.js";
+import { openDB, addUserTourDataToDB, getTableDatas, deleteUserTourListToDB } from "src/library/db/sqlite.js";
 
 export default () => {
   const [isLoading, setIsLoading] = useState(true);
@@ -28,8 +29,46 @@ export default () => {
 
     getLoginFlag();
     setIsLoading(false);
-    drawTourMarkerToMap();
+    // drawTourMarkerToMap();
+    drawExsitingUserTourList(setMarkerList);
   }, []);
+
+  useEffect(() => {
+    console.log("[MAIN CONTAINER] useEffect markerList", markerList);
+  }, [markerList]);
+
+  const drawExsitingUserTourList = callback => {
+    const db = openDB();
+    getTableDatas(db, "user_tour_list", callback);
+  };
+
+  const generateUserTourID = image => {
+    const dataStamp = convertOnlyNumber(image.exif["{GPS}"].DateStamp);
+    const TimeStamp = convertOnlyNumber(image.exif["{GPS}"].TimeStamp);
+    const result = image.width + image.height + image.size + dataStamp + TimeStamp;
+    console.log("[MAIN CONTAINER] generateUserTourID", result);
+    return parseInt(result / 1000000000007);
+  };
+
+  const createUserTourDbData = (image, params) => {
+    const result = {};
+    const exif = image.exif;
+    if (Platform.OS === "ios") {
+      result.id = generateUserTourID(image);
+      result.title = params.title;
+      result.description = params.description;
+      result.imageUri = image.sourceURL ? image.sourceURL : image.path;
+      result.createdTime = convertOnlyNumber(exif["{Exif}"].DateTimeDigitized);
+      result.updatedTime = convertOnlyNumber(exif["{Exif}"].DateTimeDigitized);
+      result.langitude = exif["{GPS}"].Latitude;
+      result.longitude = exif["{GPS}"].Longitude;
+    } else {
+    }
+
+    console.log("[MAIN CONTAINER] createUserTourDbData result", result);
+
+    return result;
+  };
 
   const createPolyLineCoordinates = markerList => {
     const result = [];
@@ -151,6 +190,9 @@ export default () => {
         const cameraObj = createCameraObject(markerObj.latitude, markerObj.longitude, 0, 0, 16);
         console.log("[MAIN CONTAINER] openPicker cameraObj", cameraObj);
         setMapCameraLocation(ref, cameraObj);
+        const db = openDB();
+        const userTourDbData = createUserTourDbData(image, { title: "test", description: "test_desc" });
+        addUserTourDataToDB(db, userTourDbData);
       })
       .catch(err => {
         console.log("[[MAIN CONTAINER] openPicker ERROR", err);

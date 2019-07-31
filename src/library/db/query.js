@@ -34,3 +34,11 @@ CREATE TABLE "user_tour_list" (
 export const SELECT_TABLE_DATA = tableName => {
   return `SELECT * FROM ${tableName}`;
 };
+
+export const ADD_TOUR_DATA = params => {
+  return `INSERT INTO tour_list (id, content_type_id, latitude, longitude, address_main, created_time, modified_time, cat1, cat2, cat3, title, tel) VALUES (:id, :content_type_id, :latitude, :longitude, :address_main, :created_time, :modified_time, :cat1, :cat2, :cat3, :title, :tel)`;
+};
+
+export const ADD_USER_TOUR_DATA = `INSERT INTO user_tour_list (id, title, description, image_uri, created_time, updated_time, longitude, latitude) VALUES (:id, :title, :description, :image_uri, :created_time, :updated_time, :longitude, :latitude)`;
+
+export const DELETE_ALL_USER_TOUR_LIST = `DELETE FROM user_tour_list`;

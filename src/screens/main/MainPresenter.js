@@ -9,6 +9,7 @@ import RegisterMarkerContentModal from "src/library/components/modal/registerMar
 import { View, Text, Button, StyleSheet, Dimensions, TouchableOpacity } from "react-native";
 import { Actions } from "react-native-router-flux";
 import { Icon } from "react-native-elements";
+import { openDB, deleteUserTourListToDB } from "src/library/db/sqlite.js";
 
 const { width: deviceWidth } = Dimensions.get("window");
 
@@ -30,7 +31,7 @@ export default props => {
 
   return (
     <CustomView flex>
-      <RegisterMarkerContentModal isVisible={true} />
+      <RegisterMarkerContentModal isVisible={false} />
       <MapView
         ref={mapViewRef}
         provider={PROVIDER_GOOGLE} // remove if not using Google Maps

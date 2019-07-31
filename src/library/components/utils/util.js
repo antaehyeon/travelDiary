@@ -39,3 +39,10 @@ export const convertLocation = param => {
   console.log("[UTIL] convertLocation result", result);
   return result;
 };
+
+export const convertOnlyNumber = param => {
+  // const onlyNumRegex = /^[0-9]+$/;
+  const onlyNumRegex = /[^(0-9)]/gi;
+  const result = param.replace(onlyNumRegex, "");
+  return result;
+};
