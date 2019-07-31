@@ -7,12 +7,24 @@ import CustomButton from "src/library/components/item/CustomButton.js";
 
 import { View, Text, Dimensions, StyleSheet, ScrollView, KeyboardAvoidingView, Platform } from "react-native";
 import { Input } from "react-native-elements";
-
-const { width: deviceWidth, height: deviceHeight } = Dimensions.get("window");
+import { openDB, addUserTourDataToDB } from "src/library/db/sqlite.js";
 
 const registerMarkerContent = props => {
+  console.log("[REGISTER MARKER CONTENT] props", props);
   const titleInputRef = useRef();
   const descriptionRef = useRef();
+
+  const { currentUploadedImage, createUserTourDbData, setWritingMode } = props;
+
+  const uploadUserTourDataToDB = () => {
+    const db = openDB();
+    const title = titleInputRef.current.input._lastNativeText;
+    const description = descriptionRef.current.input._lastNativeText;
+    console.log({ title, description });
+    const userTourData = createUserTourDbData(currentUploadedImage, { title, description });
+    addUserTourDataToDB(db, userTourData);
+    setWritingMode(false);
+  };
 
   return (
     <CustomView flex>
@@ -55,6 +67,7 @@ const registerMarkerContent = props => {
                 btnColor={Colors.primary}
                 textColor="white"
                 textSize={16}
+                onPress={uploadUserTourDataToDB}
               />
             </CustomView>
           </ScrollView>

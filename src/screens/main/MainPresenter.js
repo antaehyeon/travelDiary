@@ -25,10 +25,11 @@ export default props => {
     addMarkerList,
     createCameraObject,
     setMapCameraLocation,
-    createPolyLineCoordinates
+    createPolyLineCoordinates,
+    createUserTourDbData
   } = props;
-  const { markerList, tourMode, routeMode, writingMode, settingMode } = hooksDatas;
-  const { setMarkerList, setTourMode, setRouteMode, setWritingMode, setSettingMode } = hooksFuncs;
+  const { region, markerList, tourMode, routeMode, writingMode, settingMode, currentUploadedImage } = hooksDatas;
+  const { setRegion, setMarkerList, setTourMode, setRouteMode, setWritingMode, setSettingMode, setCurrentUploadedImage } = hooksFuncs;
 
   const generatePictureMarker = () => {
     openPicker(mapViewRef, markerList, { setMarkerList, createMarkerObj, addMarkerList, createCameraObject, setMapCameraLocation });
@@ -36,32 +37,23 @@ export default props => {
 
   return (
     <CustomView flex>
-      <RegisterMarkerContentModal isVisible={writingMode} />
-      <SettingModal isVisible={settingMode} setSettingMode={setSettingMode} />
-      <MapView
-        ref={mapViewRef}
-        provider={PROVIDER_GOOGLE}
-        style={styles.map}
-        region={{
-          latitude: 37.5561111,
-          longitude: 126.94833333333334,
-          latitudeDelta: 0.015,
-          longitudeDelta: 0.0121
-        }}
-      >
+      <RegisterMarkerContentModal
+        isVisible={writingMode}
+        setWritingMode={setWritingMode}
+        currentUploadedImage={currentUploadedImage}
+        createUserTourDbData={createUserTourDbData}
+      />
+      <SettingModal isVisible={settingMode} setSettingMode={setSettingMode} setMarkerList={setMarkerList} />
+      <MapView ref={mapViewRef} provider={PROVIDER_GOOGLE} style={styles.map} region={region}>
         {markerList.map((marker, idx) => {
-          // console.log("[MAIN PRESENTER] markerList map marker", marker);
-          const { type, title, latitude, longitude, imageUri } = marker;
+          console.log("[MAIN PRESENTER] markerList map marker", marker);
+          const { id, type, title, description, latitude, longitude, imageUri } = marker;
           if (type === "tourAPI") return;
-          return <PictureMarker key={idx} title={title} latitude={latitude} longitude={longitude} imageUri={imageUri} />;
+          return (
+            <PictureMarker key={idx} id={id} title={title} description={description} latitude={latitude} longitude={longitude} imageUri={imageUri} />
+          );
         })}
-        {routeMode && (
-          <Polyline
-            coordinates={createPolyLineCoordinates(markerList)}
-            strokeColor={Colors.primary} // fallback for when `strokeColors` is not supported by the map-provider
-            strokeWidth={1}
-          />
-        )}
+        {routeMode && <Polyline coordinates={createPolyLineCoordinates(markerList)} strokeColor={Colors.primary} strokeWidth={1} />}
       </MapView>
       <TouchableOpacity style={styles.IconContainer} onPress={generatePictureMarker}>
         <CustomView center width={72} height={72} radius={36} backColor={Colors.primary} elevation={5}>
@@ -71,6 +63,11 @@ export default props => {
       <TouchableOpacity style={[styles.IconContainer, styles.settingIconContainer]} onPress={() => setSettingMode(!settingMode)}>
         <CustomView center width={36} height={36} radius={18} backColor="white" elevation={5}>
           <Icon type="simple-line-icon" name="settings" size={16} />
+        </CustomView>
+      </TouchableOpacity>
+      <TouchableOpacity style={[styles.IconContainer, styles.tripIconContainer]} onPress={() => setSettingMode(!settingMode)}>
+        <CustomView center width={36} height={36} radius={18} backColor="white" elevation={5}>
+          <Icon type="material" name="card-travel" size={16} />
         </CustomView>
       </TouchableOpacity>
     </CustomView>
@@ -101,6 +98,11 @@ const styles = StyleSheet.create({
     },
     shadowRadius: 5,
     shadowOpacity: 1.0
+  },
+
+  tripIconContainer: {
+    left: deviceWidth / 2 - 84,
+    bottom: 40
   },
 
   settingIconContainer: {

@@ -7,10 +7,10 @@ import { Icon } from "react-native-elements";
 import { Marker } from "react-native-maps";
 
 const PictureMarker = props => {
-  const { title = "", description = "", latitude = 0, longitude = 0, imageUri = "" } = props;
+  const { id = null, title = "", description = "", latitude = 0, longitude = 0, imageUri = "" } = props;
 
   return (
-    <Marker coordinate={{ latitude, longitude }} onPress={() => Actions.detail(props)}>
+    <Marker coordinate={{ latitude, longitude }} onPress={() => Actions.detail({ ...props })}>
       <CustomView width={50} height={50}>
         <Icon type="font-awesome" name="map-marker" size={50} color="black" />
         <Image key={imageUri} source={{ uri: imageUri }} style={styles.markerImage} />
