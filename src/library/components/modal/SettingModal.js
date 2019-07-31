@@ -11,7 +11,7 @@ import { Input } from "react-native-elements";
 
 const deleteUserTourListData = callback => {
   const db = openDB();
-  deleteTourListToDB(db);
+  deleteUserTourListToDB(db);
   callback(false);
 };
 
@@ -29,7 +29,7 @@ const SettingModal = props => {
             radius={16}
             onPress={() => {
               const db = openDB();
-              getTableDatas(db, "tour_list", param => console.log(param));
+              getTableDatas(db, "user_tour_list", param => console.log(param));
               setSettingMode(false);
             }}
           />

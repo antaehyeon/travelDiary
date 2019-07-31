@@ -66,8 +66,18 @@ export default () => {
   };
 
   const generateUserTourID = image => {
-    const dataStamp = convertOnlyNumber(image.exif["{GPS}"].DateStamp);
-    const TimeStamp = convertOnlyNumber(image.exif["{GPS}"].TimeStamp);
+    let _dataStamp, _timeStamp;
+
+    if (Platform.OS === "ios") {
+      _dataStamp = image.exif["{GPS}"].DateStamp;
+      _timeStamp = image.exif["{GPS}"].TimeStamp;
+    } else {
+      _dataStamp = image.exif.GPSDateStamp;
+      _timeStamp = image.exif.GPSTimeStamp;
+    }
+
+    const dataStamp = convertOnlyNumber(_dataStamp);
+    const TimeStamp = convertOnlyNumber(_timeStamp);
     const result = image.width + image.height + image.size + dataStamp + TimeStamp;
     console.log("[MAIN CONTAINER] generateUserTourID", result);
     return parseInt(result / 1000000000007);
@@ -76,18 +86,18 @@ export default () => {
   const createUserTourDbData = (image, params) => {
     const result = {};
     const exif = image.exif;
-    if (Platform.OS === "ios") {
-      result.id = generateUserTourID(image);
-      result.title = params.title;
-      result.description = params.description;
-      result.imageUri = image.sourceURL ? image.sourceURL : image.path;
-      result.createdTime = convertOnlyNumber(exif["{Exif}"].DateTimeDigitized);
-      result.updatedTime = convertOnlyNumber(exif["{Exif}"].DateTimeDigitized);
-      result.langitude = exif["{GPS}"].Latitude;
-      result.longitude = exif["{GPS}"].Longitude;
-    } else {
-    }
+    const timeStamp = Platform.OS === "ios" ? exif["{Exif}"].DateTimeDigitized : exif.DateTime;
+    const latitude = Platform.OS === "ios" ? exif["{GPS}"].Latitude : createGPSInfo(exif).latitude;
+    const longitude = Platform.OS === "ios" ? exif["{GPS}"].Longitude : createGPSInfo(exif).longitude;
 
+    result.id = generateUserTourID(image);
+    result.title = params.title;
+    result.description = params.description;
+    result.imageUri = image.sourceURL ? image.sourceURL : image.path;
+    result.createdTime = convertOnlyNumber(timeStamp);
+    result.updatedTime = convertOnlyNumber(timeStamp);
+    result.latitude = latitude;
+    result.longitude = longitude;
     console.log("[MAIN CONTAINER] createUserTourDbData result", result);
 
     return result;

@@ -20,8 +20,8 @@ const registerMarkerContent = props => {
     const db = openDB();
     const title = titleInputRef.current.input._lastNativeText;
     const description = descriptionRef.current.input._lastNativeText;
-    console.log({ title, description });
     const userTourData = createUserTourDbData(currentUploadedImage, { title, description });
+    console.log("[REGISTER MARKER CONTENT] userTourData", userTourData);
     addUserTourDataToDB(db, userTourData);
     setWritingMode(false);
   };

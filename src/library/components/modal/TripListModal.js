@@ -54,9 +54,9 @@ const TripListModal = props => {
       <Modal {...props} style={{ flex: 1 }} scrollHorizontal>
         <CustomView height={48} />
         <ScrollView bounces={false}>
-          {tourList.map(data => {
+          {tourList.map((data, idx) => {
             console.log("[TRIP LIST MODAL] data", data);
-            return <TourItem {...data} />;
+            return <TourItem key={idx} {...data} />;
           })}
         </ScrollView>
         <CloseButton />

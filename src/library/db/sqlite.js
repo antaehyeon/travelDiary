@@ -80,10 +80,10 @@ export const addTourDataToDB = (db, params) => {
 };
 
 export const addUserTourDataToDB = (db, params) => {
-  const { id, title, description, imageUri, createdTime, updatedTime, longitude, langitude } = params;
+  const { id, title, description, imageUri, createdTime, updatedTime, longitude, latitude } = params;
 
   db.transaction(tx => {
-    tx.executeSql(ADD_USER_TOUR_DATA, [id, title, description, imageUri, createdTime, updatedTime, longitude, langitude], (tx, result) => {
+    tx.executeSql(ADD_USER_TOUR_DATA, [id, title, description, imageUri, createdTime, updatedTime, longitude, latitude], (tx, result) => {
       console.log("[SQLITE] ADD_USER_TOUR_DATA RESULT", result);
       return result;
     });
