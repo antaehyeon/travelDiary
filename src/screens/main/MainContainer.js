@@ -15,9 +15,11 @@ export default () => {
   const [markerList, setMarkerList] = useState([]);
   const [tourMode, setTourMode] = useState(false);
   const [routeMode, setRouteMode] = useState(false);
+  const [writingMode, setWritingMode] = useState(false);
+  const [settingMode, setSettingMode] = useState(false);
 
-  const hooksDatas = { markerList, tourMode, routeMode };
-  const hooksFuncs = { setMarkerList, setTourMode, setRouteMode };
+  const hooksDatas = { markerList, tourMode, routeMode, writingMode, settingMode };
+  const hooksFuncs = { setMarkerList, setTourMode, setRouteMode, setWritingMode, setSettingMode };
 
   const mapViewRef = useRef();
 
