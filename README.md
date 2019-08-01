@@ -13,6 +13,12 @@
 | ------------------------------------ | ------------------------------------ |
 | 사진 업로드 (Debug Mode)             | 사용자 데이터 제거 (Debug Mode)      |
 
+## GIF 이미지가 동작하지 않아 직접 링크로 대체합니다
+기본 동작 (Debug Mode) https://i.imgur.com/6I5Qimy.gif
+주변 관광지 리스트 출력 (Debug Mode) https://i.imgur.com/xgNXzef.gif
+사진 업로드 (Debug Mode) https://i.imgur.com/HFgwZ0X.gif
+사용자 데이터 제거 (Debug Mode) https://i.imgur.com/NViHk26.gif
+
 
 
 ## Intro. Travel Diary
