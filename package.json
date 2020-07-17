@@ -14,7 +14,7 @@
   "dependencies": {
     "@react-native-community/async-storage": "^1.6.1",
     "babel-plugin-module-resolver": "^3.2.0",
-    "lodash": "^4.17.15",
+    "lodash": "^4.17.19",
     "react": "16.8.6",
     "react-apollo": "^2.5.8",
     "react-native": "0.60.4",
